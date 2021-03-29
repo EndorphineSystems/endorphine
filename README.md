@@ -82,6 +82,31 @@ Now push it to your own repository.
 
    gem 'endorphine-form', github: 'EndorphineSystems/approval-module'
 
+### Creating Flow
+
+Open approval.endorphineflow:
+
+    flow title Task Approval
+    
+    can start from
+       Dashboard
+    can start from
+       Task
+    
+    requires
+       Task id
+    
+    flow
+       start
+       then ApprovalScene
+       branch
+
+    flow ApprovalScene
+       if approved?
+       then task.approved! and end
+       else task.declined! and end
+    
+
 ### Module
 
 A module is an installable and upgradeable within Endorphine.
