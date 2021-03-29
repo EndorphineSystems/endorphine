@@ -56,7 +56,7 @@ Whoa you get a dashboard!
 
 ## Extending a module
 
-    endorphine create module <YourGitHubAccount>/endorphine-form
+    endorphine create module <YourGitHubAccount>/task
 
 I will create my own
 
@@ -68,7 +68,15 @@ Now inspect the module
     extends: endorphine/form
     endorphine:
       form:
-        install:
+        create:
+          task:
+            title:
+              type: string
+              validation: presence
+            description:
+              type: string
+              validation: presence
+            
 
 Now push it to your own repository.
 
